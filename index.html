@@ -12,26 +12,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/terminal-portfolio.css">
+  <style>
+    html:not(.js) .reveal { opacity: 1 !important; transform: none !important; }
+  </style>
 </head>
 <body>
-
-  <!-- Boot overlay -->
-  <div class="boot-overlay" id="boot-overlay">
-    <div class="boot-content" id="boot-content"></div>
-  </div>
-
-  <div class="bg-grid"></div>
-  <div class="scanline"></div>
 
   <!-- Navigation -->
   <nav class="nav-bar" id="nav-bar">
     <div class="nav-inner">
       <a href="#home" class="nav-logo">
-        <span>&gt;_</span> aditya<span>@devops</span>
+        <img src="assets/imgs/logo.PNG" alt="Aditya Jaishi">
+        aditya<span>@devops</span>
       </a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">menu</button>
       <ul class="nav-links" id="nav-links">
         <li><a href="#home">~/home</a></li>
+        <li><a href="#about">~/about</a></li>
         <li><a href="#skills">~/skills</a></li>
         <li><a href="#projects">~/projects</a></li>
         <li><a href="#experience">~/experience</a></li>
@@ -40,12 +37,15 @@
     </div>
   </nav>
 
+  <div class="bg-grid"></div>
+  <div class="scanline"></div>
+
   <div class="wrapper">
 
     <!-- Hero -->
     <section class="hero" id="home">
       <div class="hero-grid">
-        <div class="hero-intro reveal">
+        <div class="hero-intro reveal visible">
           <div class="status-bar">
             <span class="status-pill"><span class="dot"></span> Available for work</span>
             <span class="status-pill">Bhaktapur, Nepal</span>
@@ -72,17 +72,36 @@
           </div>
         </div>
 
-        <div class="terminal reveal" id="hero-terminal">
-          <div class="terminal-header">
-            <div class="terminal-dots"><span></span><span></span><span></span></div>
-            <div class="terminal-title">aditya@devops: ~/portfolio</div>
+        <div class="hero-visual reveal visible">
+          <!-- Profile photo panel -->
+          <div class="photo-panel">
+            <div class="photo-panel-header">
+              <span>$ kubectl describe pod aditya-jaishi</span>
+              <span class="status-live">RUNNING</span>
+            </div>
+            <div class="photo-frame hero-photo">
+              <img src="assets/imgs/logo1.JPG" alt="Aditya Jaishi — DevOps Engineer">
+            </div>
+            <div class="photo-meta">
+              <div><strong>Role</strong>DevOps Engineer</div>
+              <div><strong>Region</strong>Nepal (APAC)</div>
+              <div><strong>Uptime</strong>99.9% available</div>
+              <div><strong>Stack</strong>Docker · K8s · Jenkins</div>
+            </div>
           </div>
-          <div class="terminal-body">
-            <div id="terminal-output"></div>
-            <form id="terminal-form" class="terminal-input-row">
-              <span class="terminal-prompt">aditya@devops:~$</span>
-              <input type="text" class="terminal-input" id="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal input">
-            </form>
+
+          <div class="terminal" id="hero-terminal">
+            <div class="terminal-header">
+              <div class="terminal-dots"><span></span><span></span><span></span></div>
+              <div class="terminal-title">aditya@devops: ~/portfolio</div>
+            </div>
+            <div class="terminal-body">
+              <div id="terminal-output"></div>
+              <form id="terminal-form" class="terminal-input-row">
+                <span class="terminal-prompt">aditya@devops:~$</span>
+                <input type="text" class="terminal-input" id="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal input">
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -339,19 +358,45 @@
       </div>
     </section>
 
-    <!-- About terminal -->
-    <section class="section reveal">
-      <div class="terminal">
-        <div class="terminal-header">
-          <div class="terminal-dots"><span></span><span></span><span></span></div>
-          <div class="terminal-title">cat about.txt</div>
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="section-header reveal">
+        <p class="section-cmd"><span>$</span> cat about.txt</p>
+        <h2>About Me</h2>
+      </div>
+      <div class="about-grid reveal">
+        <div class="about-photo-card">
+          <div class="photo-panel-header">
+            <span>~/profile/aditya.jpeg</span>
+            <span class="status-live">ONLINE</span>
+          </div>
+          <div class="photo-frame">
+            <img src="assets/imgs/profile.jpeg" alt="Aditya Jaishi profile">
+          </div>
+          <div class="about-caption">
+            <h3>Aditya Jaishi</h3>
+            <p>DevOps / Cloud Engineer</p>
+          </div>
+          <div class="about-actions">
+            <a class="btn btn-primary" href="https://drive.google.com/file/d/1-pfQWMzC8NMaAnUFJHSjjOfyUn29k6Zb/view?usp=drive_link" target="_blank" rel="noopener">$ download_cv</a>
+          </div>
         </div>
-        <div class="terminal-body">
-          <p><span style="color: #56d364">$</span> cat about.txt</p>
-          <br>
-          <p>Having completed my Bachelor's degree in Computer Engineering from Khwopa College of Engineering, I have developed a strong foundation in Software Development and Deployment.</p>
-          <br>
-          <p>Looking ahead, I am eager to leverage my skills in DevOps to drive innovation and efficiency within dynamic organizations. I aspire to continuously learn and adapt to emerging technologies, contributing to the seamless integration of development and operations that defines successful DevOps practices.</p>
+
+        <div class="terminal">
+          <div class="terminal-header">
+            <div class="terminal-dots"><span></span><span></span><span></span></div>
+            <div class="terminal-title">cat about.txt</div>
+          </div>
+          <div class="terminal-body">
+            <p><span style="color: #56d364">$</span> cat about.txt</p>
+            <br>
+            <p>Having completed my Bachelor's degree in Computer Engineering from Khwopa College of Engineering, I have developed a strong foundation in Software Development and Deployment.</p>
+            <br>
+            <p>Looking ahead, I am eager to leverage my skills in DevOps to drive innovation and efficiency within dynamic organizations. I aspire to continuously learn and adapt to emerging technologies, contributing to the seamless integration of development and operations that defines successful DevOps practices.</p>
+            <br>
+            <p><span style="color: #38d9e8"># Education:</span> Khwopa College of Engineering — Computer Engineering</p>
+            <p><span style="color: #38d9e8"># Focus:</span> CI/CD · Containers · Cloud Infrastructure · Automation</p>
+          </div>
         </div>
       </div>
     </section>

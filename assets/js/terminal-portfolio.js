@@ -5,6 +5,8 @@
 (function () {
   "use strict";
 
+  document.documentElement.classList.add("js");
+
   const PROFILE = {
     name: "Aditya Jaishi",
     role: "DevOps / Cloud Engineer",
@@ -122,13 +124,13 @@
         "       <span class='green'>│</span> <span class='cyan'>aditya@devops</span> <span class='green'>│</span>",
         "       <span class='green'>╰─────────────╯</span>",
         "",
-        `  <span class='green'>OS:</span>       Linux (Ubuntu) x86_64`,
-        `  <span class='green'>Host:</span>      portfolio-terminal",
-        `  <span class='green'>Kernel:</span>    6.17.0-generic",
-        `  <span class='green'>Uptime:</span>    building pipelines 24/7",
-        `  <span class='green'>Shell:</span>    bash 5.2",
-        `  <span class='green'>Role:</span>     ${PROFILE.role}",
-        `  <span class='green'>Location:</span> ${PROFILE.location}",
+        "  <span class='green'>OS:</span>       Linux (Ubuntu) x86_64",
+        "  <span class='green'>Host:</span>      portfolio-terminal",
+        "  <span class='green'>Kernel:</span>    6.17.0-generic",
+        "  <span class='green'>Uptime:</span>    building pipelines 24/7",
+        "  <span class='green'>Shell:</span>    bash 5.2",
+        `  <span class='green'>Role:</span>     ${PROFILE.role}`,
+        `  <span class='green'>Location:</span> ${PROFILE.location}`,
         "",
         "  <span class='green'>██</span><span class='cyan'>██</span><span class='blue'>██</span><span class='purple'>██</span><span class='orange'>██</span><span class='red'>██</span>",
       ].join("\n"),
@@ -163,34 +165,8 @@
     },
   };
 
-  const BOOT_LINES = [
-    "[ OK ] Starting portfolio-terminal.service",
-    "[ OK ] Loaded DevOps environment",
-    "[ OK ] Connected to github.com/Adityakafle",
-    "[ OK ] Jenkins pipeline: HEALTHY",
-    "[ OK ] Docker daemon: RUNNING",
-    "[ OK ] Kubernetes cluster: READY",
-    "Welcome to Aditya Jaishi's DevOps Portfolio",
-    "Type 'help' for available commands",
-  ];
-
-  /* Boot sequence */
-  function runBootSequence() {
-    const overlay = document.getElementById("boot-overlay");
-    const content = document.getElementById("boot-content");
-    if (!overlay || !content) return;
-
-    BOOT_LINES.forEach((line, i) => {
-      const el = document.createElement("div");
-      el.className = "boot-line";
-      el.style.animationDelay = `${i * 0.15}s`;
-      el.textContent = line;
-      content.appendChild(el);
-    });
-
-    const totalTime = BOOT_LINES.length * 150 + 800;
-    setTimeout(() => overlay.classList.add("hidden"), totalTime);
-  }
+  /* Quick splash — overlay removed from HTML */
+  function hideSplash() {}
 
   /* Terminal */
   function initTerminal() {
@@ -310,9 +286,13 @@
     sections.forEach((s) => observer.observe(s));
   }
 
-  /* Scroll reveal */
+  /* Scroll reveal — hero always visible immediately */
   function initReveal() {
     const els = document.querySelectorAll(".reveal");
+    els.forEach((el) => {
+      if (el.closest("#home")) el.classList.add("visible");
+    });
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -322,7 +302,7 @@
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
     );
     els.forEach((el) => observer.observe(el));
   }
@@ -399,7 +379,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    runBootSequence();
+    hideSplash();
     initTerminal();
     initNav();
     initReveal();
@@ -407,4 +387,7 @@
     initContactForm();
     initTypewriter();
   });
+
+  /* Fallback if DOMContentLoaded already fired */
+  if (document.readyState !== "loading") hideSplash();
 })();
