@@ -1,235 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link rel="icon" href="/assets/imgs/vector1.jpg" type="image/x-icon">
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="assets/css/steller.css">
-    <style>
-        .navbar-logo {
-            max-height: 50px;
-        }
-        .img-holder img,
-        .img-thumbnail {
-            max-width: 100%;
-            height: auto;
-        }
-        @media (max-width: 768px) {
-            .header .infos {
-                text-align: center;
-                padding-top: 60px;
-            }
-            .header .img-holder {
-                display: none;
-                text-align: center;
-                margin-top: 20px;
-            }
-            .about .img-holder {
-                display: block;
-                text-align: center;
-                margin-top: 20px;
-            }
-            .header .row,
-            .about .row {
-                flex-direction: column;
-                align-items: center;
-            }
-            .header .infos,
-            .about .infos {
-                order: 1;
-            }
-            .header .img-holder,
-            .about .img-holder {
-                order: 2;
-            }
-            .about .img-thumbnail {
-                display: block;
-                margin: 0 auto;
-                max-width: 80%;
-                height: auto;
-            }
-        }
-        @media (min-width: 768px) {
-            .header .img-holder img {
-                border-radius: 50%;
-            }
-        }
-        /* Additional styles for contact form and footer */
-        #contact .form {
-            margin-bottom: 30px;
-        }
-        .page-footer {
-            background-color: #f8f9fa;
-            padding: 40px 0;
-            text-align: center;
-        }
-        .socials {
-            font-size: 24px;
-        }
-        .social-item {
-            margin: 0 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aditya Jaishi — DevOps & Cloud Engineer portfolio. CI/CD, Docker, Kubernetes, AWS, and infrastructure automation.">
+  <meta name="author" content="Aditya Jaishi">
+  <meta name="theme-color" content="#0a0e14">
+  <title>Aditya Jaishi | DevOps Engineer</title>
+  <link rel="icon" href="assets/imgs/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/terminal-portfolio.css">
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+<body>
 
-    <!-- Page navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" data-spy="affix" data-offset-top="0">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img src="/assets/imgs/logo.PNG" alt="Logo" class="navbar-logo img-fluid"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+  <!-- Boot overlay -->
+  <div class="boot-overlay" id="boot-overlay">
+    <div class="boot-content" id="boot-content"></div>
+  </div>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>          
-    </nav>
-    <!-- End of page navigation -->
+  <div class="bg-grid"></div>
+  <div class="scanline"></div>
 
-    <!-- Page Header -->
-    <header class="header" id="home">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 infos">
-                    <h6 class="subtitle">Hello, I'm</h6>
-                    <h1 class="title" style="font-size: 2.5rem;">Aditya Jaishi</h1>
-                    <p>DevOps/Cloud Engineer</p>
+  <!-- Navigation -->
+  <nav class="nav-bar" id="nav-bar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <span>&gt;_</span> aditya<span>@devops</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">~/home</a></li>
+        <li><a href="#skills">~/skills</a></li>
+        <li><a href="#projects">~/projects</a></li>
+        <li><a href="#experience">~/experience</a></li>
+        <li><a href="#contact">~/contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-                    <div class="buttons pt-3">
-                        <button class="btn btn-primary rounded">HIRE ME</button>
-                        <a class="btn btn-dark rounded" href="https://drive.google.com/file/d/1Fa0fn-1BqExtJpvelVLqxTYr5C9QQinO/view?usp=drive_link" download="AdDevCV.pdf">DOWNLOAD CV</a>
-                    </div>
+  <div class="wrapper">
 
-                    <div class="socials mt-4">
-                        <a class="social-item" href="https://www.facebook.com/aditya.jaishi.3/" target="_blank"><i class="ti-facebook"></i></a>
-                        <a class="social-item" href="https://www.instagram.com/aditya.jaishi.3/" target="_blank"><i class="ti-instagram"></i></a>
-                        <a class="social-item" href="https://www.linkedin.com/in/aditya-jaishi-4440bb253/" target="_blank"><i class="ti-linkedin"></i></a>
-                        <a class="social-item" href="https://github.com/Adityakafle" target="_blank"><i class="ti-github"></i></a>
-                        <a class="social-item" href="https://hashnode.com/@adityajaishi" target="_blank"><i class="ti-world"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-6 img-holder">
-                    <img src="assets/imgs/logo1.JPG" alt="Profile Image" class="img-fluid">
-                </div>
-            </div>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-grid">
+        <div class="hero-intro reveal">
+          <div class="status-bar">
+            <span class="status-pill"><span class="dot"></span> Available for work</span>
+            <span class="status-pill">Bhaktapur, Nepal</span>
+          </div>
+          <h1>
+            Hi, I'm <span class="name">Aditya Jaishi</span>
+          </h1>
+          <p class="role">
+            <span id="typewriter">DevOps Engineer</span><span class="cursor-blink"></span>
+          </p>
+          <p class="tagline">
+            I build reliable CI/CD pipelines, automate cloud infrastructure, and ship containerized applications at scale. Turning ops chaos into elegant automation.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">$ hire_me</a>
+            <a href="https://drive.google.com/file/d/1Fa0fn-1BqExtJpvelVLqxTYr5C9QQinO/view?usp=drive_link" class="btn btn-outline" target="_blank" rel="noopener">$ download_cv</a>
+          </div>
+          <div class="social-row">
+            <a href="https://github.com/Adityakafle" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+            <a href="https://www.linkedin.com/in/aditya-jaishi-4440bb253/" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">IN</a>
+            <a href="https://hashnode.com/@adityajaishi" class="social-link" target="_blank" rel="noopener" aria-label="Hashnode">HN</a>
+            <a href="https://www.facebook.com/aditya.jaishi.3/" class="social-link" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+            <a href="https://www.instagram.com/aditya.jaishi.3/" class="social-link" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          </div>
         </div>
-    </header>
-    <!-- End of Page Header -->
 
-    <!-- About section -->
-    <section id="about" class="section mt-3">
-        <div class="container mt-5">
-            <div class="row text-center text-md-left">
-                <div class="col-md-3 img-holder">
-                    <img src="assets/imgs/profile.jpeg" alt="Profile Image" class="img-thumbnail mb-4 img-fluid">
-                </div>
-                <div class="pl-md-4 col-md-9 infos">
-                    <h2 class="title">Aditya Jaishi</h2>
-                    <p class="subtitle">DevOps Engineer</p>
-                    <p>Having completed my Bachelor's degree in Computer Engineering from Khwopa College Of Engineering, I have developed a strong foundation in Software Development and Deployment.</p>
-                    <p>Looking ahead, I am eager to leverage my skills in DevOps to drive innovation and efficiency within dynamic organizations. I aspire to continuously learn and adapt to emerging technologies, contributing to the seamless integration of development and operations that defines successful DevOps practices.</p>
-                    <a class="btn btn-primary rounded mt-3" href="https://drive.google.com/file/d/1-pfQWMzC8NMaAnUFJHSjjOfyUn29k6Zb/view?usp=drive_link" download="AdDevCV.pdf">DOWNLOAD CV</a>
-                </div>
-            </div>
+        <div class="terminal reveal" id="hero-terminal">
+          <div class="terminal-header">
+            <div class="terminal-dots"><span></span><span></span><span></span></div>
+            <div class="terminal-title">aditya@devops: ~/portfolio</div>
+          </div>
+          <div class="terminal-body">
+            <div id="terminal-output"></div>
+            <form id="terminal-form" class="terminal-input-row">
+              <span class="terminal-prompt">aditya@devops:~$</span>
+              <input type="text" class="terminal-input" id="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal input">
+            </form>
+          </div>
         </div>
+      </div>
     </section>
-    <!-- End of About Section -->
 
-    <!-- Contact Section -->
-    <section id="contact" class="position-relative section">
-        <div class="container text-center">
-            <h2 class="subtitle" style="font-weight: bold; font-size: 1.5em;">Contact Me</h2><br><br>
-            <div class="contact text-relative">
-                <div class="form">
-                    <h6 class="subtitle">Available 24/7</h6>
-                    <h6 class="section-title mb-4">Get In Touch</h6>
-                    <form>
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="name" class="form-control" id="exampleInputPassword1" placeholder="Name" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="contact-message" id="" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block rounded w-lg">Send Message</button>
-                    </form>
-                </div>
-                <div class="contact-infos mt-4">
-                    <div class="item">
-                        <i class="ti-location-pin"></i>
-                        <div>
-                            <h5>Location</h5>
-                            <p>44800 Suryabinayak, Bhaktapur Nepal</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <i class="ti-mobile"></i>
-                        <div>
-                            <h5>Phone Number</h5>
-                            <p>(+977) 9861150868</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <i class="ti-email"></i>
-                        <div>
-                            <h5>Email Address</h5>
-                            <p>jaishiaditya2000@gmail.com</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Pipeline viz -->
+    <section class="section reveal" style="padding-top: 0;">
+      <div class="pipeline-viz">
+        <div class="pipeline-step">
+          <div class="pipeline-node" style="--delay: 0s">git push</div>
+          <span class="pipeline-arrow">→</span>
         </div>
+        <div class="pipeline-step">
+          <div class="pipeline-node" style="--delay: 0.5s">Jenkins CI</div>
+          <span class="pipeline-arrow">→</span>
+        </div>
+        <div class="pipeline-step">
+          <div class="pipeline-node" style="--delay: 1s">Docker Build</div>
+          <span class="pipeline-arrow">→</span>
+        </div>
+        <div class="pipeline-step">
+          <div class="pipeline-node" style="--delay: 1.5s">K8s Deploy</div>
+          <span class="pipeline-arrow">→</span>
+        </div>
+        <div class="pipeline-step">
+          <div class="pipeline-node active" style="--delay: 2s">Production ✓</div>
+        </div>
+      </div>
     </section>
-    <!-- End of Contact Section -->
 
-
-
-    <!-- Page Footer -->
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-sm-6">
-                    <p>Copyright <script>document.write(new Date().getFullYear())</script> &copy; <a href="http://www.devcrud.com" target="_blank">DevCRUD</a></p>
-                </div>
-                <div class="col-sm-6">
-                    <div class="socials">
-                        <a class="social-item" href="https://www.facebook.com/aditya.jaishi.3/" target="_blank"><i class="ti-facebook"></i></a>
-                        <a class="social-item" href="https://www.instagram.com/aditya.jaishi.3/" target="_blank"><i class="ti-instagram"></i></a>
-                        <a class="social-item" href="https://www.linkedin.com/in/aditya-jaishi-4440bb253/" target="_blank"><i class="ti-linkedin"></i></a>
-                        <a class="social-item" href="https://github.com/Adityakafle" target="_blank"><i class="ti-github"></i></a>
-                        <a class="social-item" href="https://hashnode.com/@adityajaishi" target="_blank"><i class="ti-world"></i></a>
-                    </div>
-                </div>
-            </div>
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="section-header reveal">
+        <p class="section-cmd"><span>$</span> kubectl get skills --all-namespaces</p>
+        <h2>Technical Arsenal</h2>
+      </div>
+      <div class="skills-grid reveal">
+        <div class="skill-category">
+          <h3>⚙ DevOps & CI/CD</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Jenkins</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">GitLab CI</span>
+            <span class="skill-tag">ArgoCD</span>
+            <span class="skill-tag">CI/CD Pipelines</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Jenkins / CI/CD</span><span>90%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" style="--level: 90%"></div></div>
+          </div>
         </div>
-    </footer> 
-    <!-- End of page footer --->
+        <div class="skill-category">
+          <h3>🐳 Containers & Orchestration</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">Helm</span>
+            <span class="skill-tag">Docker Compose</span>
+            <span class="skill-tag">Container Security</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Docker / K8s</span><span>88%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" style="--level: 88%"></div></div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>☁ Cloud & Infrastructure</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">GCP</span>
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">Ansible</span>
+            <span class="skill-tag">IaC</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Cloud / IaC</span><span>82%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" style="--level: 82%"></div></div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>🐧 Linux & Scripting</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Ubuntu</span>
+            <span class="skill-tag">Bash</span>
+            <span class="skill-tag">Shell Scripting</span>
+            <span class="skill-tag">Nginx</span>
+            <span class="skill-tag">MySQL</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Linux Administration</span><span>92%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" style="--level: 92%"></div></div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>💻 Languages & APIs</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">YAML</span>
+            <span class="skill-tag">JSON</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Python / Scripting</span><span>85%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" style="--level: 85%"></div></div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>🔒 Security & Monitoring</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Secrets Management</span>
+            <span class="skill-tag">Vulnerability Scanning</span>
+            <span class="skill-tag">DevSecOps</span>
+            <span class="skill-tag">Logging</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Security Practices</span><span>78%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" style="--level: 78%"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- core  -->
-    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
-    <!-- bootstrap 3 affix -->
-    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
-    <!-- steller js -->
-    <script src="assets/js/steller.js"></script>
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="section-header reveal">
+        <p class="section-cmd"><span>$</span> git log --oneline --projects</p>
+        <h2>Featured Projects</h2>
+      </div>
+      <div class="projects-grid">
+        <article class="project-card reveal">
+          <div class="project-header">
+            <span class="project-name">CI/CD Three-Tier App</span>
+            <span class="project-status">DEPLOYED</span>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">End-to-end CI/CD pipeline for containerized three-tier applications using Jenkins, Docker, and Kubernetes orchestration.</p>
+            <div class="project-tech">
+              <span>Jenkins</span><span>Docker</span><span>Kubernetes</span><span>CI/CD</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Adityakafle/CI-CD-Pipeline-for-Containerized-Three-Tier-Applications-Using-Jenkins" target="_blank" rel="noopener">→ View Repo</a>
+            </div>
+          </div>
+        </article>
 
+        <article class="project-card reveal">
+          <div class="project-header">
+            <span class="project-name">WordPress on Ubuntu 24.04</span>
+            <span class="project-status">ACTIVE</span>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">Automated WordPress installation and server provisioning on Ubuntu 24.04 with Nginx, MySQL, and security hardening.</p>
+            <div class="project-tech">
+              <span>Linux</span><span>Nginx</span><span>MySQL</span><span>Shell</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Adityakafle/Wordpress_installation_in_ubuntu24.04" target="_blank" rel="noopener">→ View Repo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-header">
+            <span class="project-name">Pokemon FastAPI</span>
+            <span class="project-status">RUNNING</span>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">RESTful API built with Python FastAPI for Pokemon data management, containerized and ready for cloud deployment.</p>
+            <div class="project-tech">
+              <span>Python</span><span>FastAPI</span><span>Docker</span><span>REST API</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Adityakafle/Pokemon_FastAPI" target="_blank" rel="noopener">→ View Repo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-header">
+            <span class="project-name">DVNA Security Lab</span>
+            <span class="project-status">LAB</span>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">Damn Vulnerable Node Application deployment for security testing, container orchestration, and DevSecOps practices.</p>
+            <div class="project-tech">
+              <span>Node.js</span><span>Docker</span><span>Security</span><span>DevSecOps</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Adityakafle/dvna" target="_blank" rel="noopener">→ View Repo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-header">
+            <span class="project-name">GitHub Secrets Scanner</span>
+            <span class="project-status">SECURITY</span>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">Automated tool to detect exposed secrets in public GitHub repositories — essential for security automation workflows.</p>
+            <div class="project-tech">
+              <span>Python</span><span>Security</span><span>Automation</span><span>GitHub API</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Adityakafle/github-secrets-finding-public" target="_blank" rel="noopener">→ View Repo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-header">
+            <span class="project-name">Vulnerable App Testing</span>
+            <span class="project-status">RESEARCH</span>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">Vulnerable application environment for penetration testing and security pipeline integration experiments.</p>
+            <div class="project-tech">
+              <span>Python</span><span>Security</span><span>Testing</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Adityakafle/vulnerable" target="_blank" rel="noopener">→ View Repo</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience">
+      <div class="section-header reveal">
+        <p class="section-cmd"><span>$</span> cat /etc/experience.log</p>
+        <h2>Experience & Education</h2>
+      </div>
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <div class="timeline-date">2020 – 2024</div>
+          <h3 class="timeline-title">Bachelor's in Computer Engineering</h3>
+          <p class="timeline-org">Khwopa College of Engineering</p>
+          <p class="timeline-desc">Built a strong foundation in software development, system design, and deployment. Focused on bridging development workflows with production operations — the core of DevOps engineering.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2023 – Present</div>
+          <h3 class="timeline-title">DevOps / Cloud Engineering</h3>
+          <p class="timeline-org">Self-driven & Project-based Learning</p>
+          <p class="timeline-desc">Designed and implemented CI/CD pipelines with Jenkins, containerized applications with Docker, orchestrated workloads on Kubernetes, and automated infrastructure with shell scripting and IaC tools.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Ongoing</div>
+          <h3 class="timeline-title">Infrastructure & Security Automation</h3>
+          <p class="timeline-org">Open Source Projects</p>
+          <p class="timeline-desc">Building security scanning tools, vulnerable app labs for DevSecOps, and server provisioning automation. Continuously learning emerging cloud-native technologies.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About terminal -->
+    <section class="section reveal">
+      <div class="terminal">
+        <div class="terminal-header">
+          <div class="terminal-dots"><span></span><span></span><span></span></div>
+          <div class="terminal-title">cat about.txt</div>
+        </div>
+        <div class="terminal-body">
+          <p><span style="color: #56d364">$</span> cat about.txt</p>
+          <br>
+          <p>Having completed my Bachelor's degree in Computer Engineering from Khwopa College of Engineering, I have developed a strong foundation in Software Development and Deployment.</p>
+          <br>
+          <p>Looking ahead, I am eager to leverage my skills in DevOps to drive innovation and efficiency within dynamic organizations. I aspire to continuously learn and adapt to emerging technologies, contributing to the seamless integration of development and operations that defines successful DevOps practices.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="section-header reveal">
+        <p class="section-cmd"><span>$</span> ssh contact@aditya.dev</p>
+        <h2>Get In Touch</h2>
+      </div>
+      <div class="contact-grid reveal">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">@</div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:jaishiaditya2000@gmail.com">jaishiaditya2000@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">#</div>
+            <div>
+              <h4>Phone</h4>
+              <p>(+977) 9861150868</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">~</div>
+            <div>
+              <h4>Location</h4>
+              <p>44800 Suryabinayak, Bhaktapur, Nepal</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">></div>
+            <div>
+              <h4>Availability</h4>
+              <p>Open to DevOps / Cloud Engineer roles</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="terminal contact-form-wrap">
+          <div class="terminal-header">
+            <div class="terminal-dots"><span></span><span></span><span></span></div>
+            <div class="terminal-title">send_message.sh</div>
+          </div>
+          <div class="terminal-body">
+            <form class="contact-form" id="contact-form">
+              <div class="form-group">
+                <label for="name">--name</label>
+                <input type="text" id="name" name="name" placeholder="your_name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">--email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+              </div>
+              <div class="form-group">
+                <label for="message">--message</label>
+                <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">$ send --force</button>
+              <div class="form-success" id="form-success">✓ Message queued successfully! I'll get back to you soon.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <p class="footer-text">
+          © <span id="year"></span> Aditya Jaishi · Built with <span class="heart">♥</span> and terminal magic
+        </p>
+        <div class="social-row" style="margin-top: 0;">
+          <a href="https://github.com/Adityakafle" class="social-link" target="_blank" rel="noopener">GH</a>
+          <a href="https://www.linkedin.com/in/aditya-jaishi-4440bb253/" class="social-link" target="_blank" rel="noopener">IN</a>
+          <a href="https://hashnode.com/@adityajaishi" class="social-link" target="_blank" rel="noopener">HN</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="assets/js/terminal-portfolio.js"></script>
 </body>
 </html>
