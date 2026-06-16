@@ -64,10 +64,13 @@ body {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(56, 217, 232, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56, 217, 232, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(56, 217, 232, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 217, 232, 0.04) 1px, transparent 1px);
   background-size: 48px 48px;
   animation: gridShift 20s linear infinite;
+  /* Fade the grid toward the edges so large empty areas stay clean */
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 35%, transparent 100%);
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 35%, transparent 100%);
 }
 
 @keyframes gridShift {
@@ -75,19 +78,14 @@ body {
   100% { transform: translate(48px, 48px); }
 }
 
+/* CRT scanline overlay removed — the repeating lines read as visual noise
+   across large empty sections. A single soft vignette keeps depth instead. */
 .scanline {
   position: fixed;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 3px,
-    rgba(255, 255, 255, 0.015) 3px,
-    rgba(255, 255, 255, 0.015) 4px
-  );
-  opacity: 0.25;
+  background: radial-gradient(ellipse 120% 80% at 50% 40%, transparent 60%, rgba(5, 9, 15, 0.45) 100%);
 }
 
 /* Layout */
