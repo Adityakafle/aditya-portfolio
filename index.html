@@ -201,6 +201,29 @@
     .marquee i:hover{filter:none;transform:scale(1.15);opacity:1}
     @keyframes scrollx{to{transform:translateX(-50%)}}
 
+    /* Projects */
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+    .project-card{
+        background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:22px;transition:.25s;
+        display:flex;flex-direction:column;position:relative;overflow:hidden;
+    }
+    .project-card:hover{transform:translateY(-4px);border-color:rgba(124,124,255,.5)}
+    .project-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-2));opacity:.75}
+    .project-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+    .project-name{font-size:1rem;font-weight:600;color:var(--text)}
+    .project-status{
+        font-family:var(--mono);font-size:.62rem;letter-spacing:.6px;padding:3px 9px;border-radius:6px;
+        background:rgba(55,212,207,.1);color:var(--accent);border:1px solid rgba(55,212,207,.25);white-space:nowrap;
+    }
+    .project-desc{color:var(--muted);font-size:.9rem;margin-bottom:16px;flex:1}
+    .project-tech{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+    .project-tech span{
+        font-family:var(--mono);font-size:.72rem;background:var(--bg-soft);border:1px solid var(--border);
+        padding:4px 9px;border-radius:6px;color:var(--muted);
+    }
+    .project-link{font-family:var(--mono);font-size:.82rem;color:var(--accent);display:inline-flex;align-items:center;gap:7px;align-self:flex-start;transition:.2s}
+    .project-link:hover{gap:11px;color:var(--accent-2)}
+
     /* Experience timeline (pipeline) */
     .pipeline{position:relative;padding-left:34px}
     .pipeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--accent),var(--accent-2),transparent)}
@@ -316,6 +339,7 @@
             <ul class="nav-links" id="navlinks">
                 <li><a href="#about">about</a></li>
                 <li><a href="#skills">skills</a></li>
+                <li><a href="#projects">projects</a></li>
                 <li><a href="#experience">experience</a></li>
                 <li><a href="#certs">certs</a></li>
                 <li><a href="#contact" class="nav-cta">$ contact --me</a></li>
@@ -636,11 +660,83 @@
         </div>
     </section>
 
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects">
+        <div class="wrap">
+            <div class="sec-head reveal">
+                <div class="sec-kicker"><span class="n">03.</span>// git log --oneline</div>
+                <h2 class="sec-title">Featured Projects</h2>
+            </div>
+
+            <div class="projects-grid">
+                <article class="project-card reveal">
+                    <div class="project-top">
+                        <span class="project-name">CI/CD Three-Tier App</span>
+                        <span class="project-status">DEPLOYED</span>
+                    </div>
+                    <p class="project-desc">End-to-end CI/CD pipeline for containerized three-tier applications using Jenkins, Docker, and Kubernetes orchestration.</p>
+                    <div class="project-tech"><span>Jenkins</span><span>Docker</span><span>Kubernetes</span><span>CI/CD</span></div>
+                    <a class="project-link" href="https://github.com/Adityakafle/CI-CD-Pipeline-for-Containerized-Three-Tier-Applications-Using-Jenkins" target="_blank" rel="noopener">→ View Repo</a>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="project-top">
+                        <span class="project-name">WordPress on Ubuntu 24.04</span>
+                        <span class="project-status">ACTIVE</span>
+                    </div>
+                    <p class="project-desc">Automated WordPress installation and server provisioning on Ubuntu 24.04 with Nginx, MySQL, and security hardening.</p>
+                    <div class="project-tech"><span>Linux</span><span>Nginx</span><span>MySQL</span><span>Shell</span></div>
+                    <a class="project-link" href="https://github.com/Adityakafle/Wordpress_installation_in_ubuntu24.04" target="_blank" rel="noopener">→ View Repo</a>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="project-top">
+                        <span class="project-name">Pokemon FastAPI</span>
+                        <span class="project-status">RUNNING</span>
+                    </div>
+                    <p class="project-desc">RESTful API built with Python FastAPI for Pokemon data management, containerized and ready for cloud deployment.</p>
+                    <div class="project-tech"><span>Python</span><span>FastAPI</span><span>Docker</span><span>REST API</span></div>
+                    <a class="project-link" href="https://github.com/Adityakafle/Pokemon_FastAPI" target="_blank" rel="noopener">→ View Repo</a>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="project-top">
+                        <span class="project-name">DVNA Security Lab</span>
+                        <span class="project-status">LAB</span>
+                    </div>
+                    <p class="project-desc">Damn Vulnerable Node Application deployment for security testing, container orchestration, and DevSecOps practices.</p>
+                    <div class="project-tech"><span>Node.js</span><span>Docker</span><span>Security</span><span>DevSecOps</span></div>
+                    <a class="project-link" href="https://github.com/Adityakafle/dvna" target="_blank" rel="noopener">→ View Repo</a>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="project-top">
+                        <span class="project-name">GitHub Secrets Scanner</span>
+                        <span class="project-status">SECURITY</span>
+                    </div>
+                    <p class="project-desc">Automated tool to detect exposed secrets in public GitHub repositories — essential for security automation workflows.</p>
+                    <div class="project-tech"><span>Python</span><span>Security</span><span>Automation</span><span>GitHub API</span></div>
+                    <a class="project-link" href="https://github.com/Adityakafle/github-secrets-finding-public" target="_blank" rel="noopener">→ View Repo</a>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="project-top">
+                        <span class="project-name">Vulnerable App Testing</span>
+                        <span class="project-status">RESEARCH</span>
+                    </div>
+                    <p class="project-desc">Vulnerable application environment for penetration testing and security pipeline integration experiments.</p>
+                    <div class="project-tech"><span>Python</span><span>Security</span><span>Testing</span></div>
+                    <a class="project-link" href="https://github.com/Adityakafle/vulnerable" target="_blank" rel="noopener">→ View Repo</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- ============ EXPERIENCE ============ -->
     <section id="experience">
         <div class="wrap">
             <div class="sec-head reveal">
-                <div class="sec-kicker"><span class="n">03.</span>// git log --career</div>
+                <div class="sec-kicker"><span class="n">04.</span>// git log --career</div>
                 <h2 class="sec-title">Experience</h2>
             </div>
 
@@ -727,7 +823,7 @@
     <section id="certs">
         <div class="wrap">
             <div class="sec-head reveal">
-                <div class="sec-kicker"><span class="n">04.</span>// credentials --verify</div>
+                <div class="sec-kicker"><span class="n">05.</span>// credentials --verify</div>
                 <h2 class="sec-title">Certifications &amp; Achievements</h2>
             </div>
 
@@ -816,7 +912,7 @@
     <section id="contact">
         <div class="wrap">
             <div class="sec-head reveal">
-                <div class="sec-kicker"><span class="n">05.</span>// ssh aditya@contact</div>
+                <div class="sec-kicker"><span class="n">06.</span>// ssh aditya@contact</div>
                 <h2 class="sec-title">Get In Touch</h2>
             </div>
 
